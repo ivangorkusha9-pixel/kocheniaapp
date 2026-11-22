@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Товаришка Кошеня</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      margin: 0; padding: 24px 16px; min-height: 100vh;
+      background: #b3261e; color: #fff;
+      font-family: system-ui, sans-serif; text-align: center;
+    }
+    h1 { font-size: 24px; margin: 8px 0; }
+    p { opacity: .85; margin: 0 0 24px; }
+    button {
+      display: block; width: 100%; max-width: 360px; margin: 12px auto;
+      padding: 16px; font-size: 18px; border: 2px solid #ffd54f;
+      border-radius: 14px; background: #8e1b15; color: #ffd54f; cursor: pointer;
+    }
+    button:active { background: #ffd54f; color: #8e1b15; }
+  </style>
+</head>
+<body>
+  <h1>🚩 Товаришка Кошеня 🐱</h1>
+  <p>Обирай завдання, товаришу!</p>
+
+  <button onclick="send('joke')">😂 Жарт</button>
+  <button onclick="send('advice')">💡 Порада дня</button>
+  <button onclick="send('plan')">📋 П'ятирічний план</button>
+  <button onclick="send('reset')">🧹 Скинути розмову</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+    function send(cmd) {
+      tg.sendData(cmd); // бот отримає текст команди, вікно закриється
+    }
+  </script>
+</body>
+</html>
